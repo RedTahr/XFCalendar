@@ -1,4 +1,33 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:XFCalendar" x:Class="XFCalendar.XFCalendarPage">
-	<Label Text="Welcome to Xamarin Forms!" VerticalOptions="Center" HorizontalOptions="Center" />
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:local="clr-namespace:XFCalendar" 
+		x:Class="XFCalendar.XFCalendarPage" 
+		xmlns:ios="clr-namespace:UIKit;assembly=Xamarin.iOS;targetPlatform=iOS" 
+		xmlns:androidWidget="clr-namespace:Android.Widget;assembly=Mono.Android;targetPlatform=Android" 
+		xmlns:formsandroid="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Platform.Android;targetPlatform=Android" 
+		xmlns:win="clr-namespace:Windows.UI.Xaml.Controls;assembly=Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime;targetPlatform=Windows" 
+		Title="Calendar">
+	<ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness">
+      <OnPlatform.iOS>
+        0, 20, 0, 0
+      </OnPlatform.iOS>
+      <!--<OnPlatform.Android>
+        0, 0, 0, 0
+      </OnPlatform.Android>-->
+      <!--<OnPlatform.WinPhone>
+        0, 0, 0, 0
+      </OnPlatform.WinPhone>-->
+    </OnPlatform>
+  </ContentPage.Padding>
+	<ContentPage.Content>
+	<StackLayout>
+		<Label Text="Welcome to Xamarin Forms!" VerticalOptions="Center" HorizontalOptions="Center" />
+		<ios:UILabel Text="Native iOS Text" View.HorizontalOptions="Start" />
+		<androidWidget:TextView Text="Native Droid Text" x:Arguments="{x:Static formsandroid:Forms.Context}" />
+		<win:TextBlock Text="Native Windows Text" />
+	</StackLayout>
+		</ContentPage.Content>
 </ContentPage>
